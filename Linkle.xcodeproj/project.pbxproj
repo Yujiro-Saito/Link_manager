@@ -12,6 +12,7 @@
 		B7A7A7F81FCEE09400654CCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A7A7F61FCEE09400654CCB /* Main.storyboard */; };
 		B7A7A7FA1FCEE09400654CCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7A7A7F91FCEE09400654CCB /* Assets.xcassets */; };
 		B7A7A7FD1FCEE09400654CCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A7A7FB1FCEE09400654CCB /* LaunchScreen.storyboard */; };
+		B7A7A8051FCEF10700654CCB /* FolderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A7A8041FCEF10700654CCB /* FolderCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		B7A7A7F91FCEE09400654CCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7A7A7FC1FCEE09400654CCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7A7A7FE1FCEE09400654CCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7A7A8041FCEF10700654CCB /* FolderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				B7A7A7F21FCEE09400654CCB /* AppDelegate.swift */,
 				B7A7A7F41FCEE09400654CCB /* ViewController.swift */,
+				B7A7A8041FCEF10700654CCB /* FolderCollectionViewCell.swift */,
 				B7A7A7F61FCEE09400654CCB /* Main.storyboard */,
 				B7A7A7F91FCEE09400654CCB /* Assets.xcassets */,
 				B7A7A7FB1FCEE09400654CCB /* LaunchScreen.storyboard */,
@@ -137,6 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7A7A7F51FCEE09400654CCB /* ViewController.swift in Sources */,
+				B7A7A8051FCEF10700654CCB /* FolderCollectionViewCell.swift in Sources */,
 				B7A7A7F31FCEE09400654CCB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
