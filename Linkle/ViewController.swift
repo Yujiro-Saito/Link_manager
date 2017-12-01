@@ -8,42 +8,39 @@
 
 import UIKit
 
-class ViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
+class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     //Property
-    @IBOutlet weak var folder_collection: UICollectionView!
+    @IBOutlet weak var folder_table: UITableView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Delegate
-        self.folder_collection.delegate = self
-        self.folder_collection.dataSource = self
+        self.folder_table.delegate = self
+        self.folder_table.dataSource = self
     }
     
     
-    
-    
-    //Collection View methods
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+    //Tableview methods
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         //Cell
-        let cell = self.folder_collection.dequeueReusableCell(withReuseIdentifier: "folder_collection", for: indexPath) as? FolderCollectionViewCell
+        let cell = self.folder_table.dequeueReusableCell(withIdentifier: "folder_table", for: indexPath) as? FolderTableViewCell
+        
         cell?.folder_name.text = "Data_Science"
         
         return cell!
-        
     }
-    
     
     
     
