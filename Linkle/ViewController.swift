@@ -7,11 +7,21 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     //Property
     @IBOutlet weak var folder_table: UITableView!
+    let realm = try! Realm()
+    var folderName: Results<FolderName> {
+        
+        get {
+            return realm.objects(FolderName.self)
+        }
+        
+    }
+    
     
     
     override func viewDidLoad() {
@@ -23,13 +33,56 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
+    //Compose Button
+    @IBAction func composeDidTap(_ sender: Any) {
+        let alertController: UIAlertController = UIAlertController(title: "フォルダ名", message: nil, preferredStyle: .alert)
+        
+        alertController.addTextField { (UITextField) in
+            
+        }
+        
+        
+        let action_cancel = UIAlertAction.init(title: "キャンセル", style: .cancel) { (UIAlertAction) -> Void in
+            
+        }
+        alertController.addAction(action_cancel)
+        
+        let action_add = UIAlertAction.init(title: "追加", style: .default) { (UIAlertAction) -> Void in
+            
+            let textField_todo = (alertController.textFields?.first)! as UITextField
+            
+            
+            let folder_name = FolderName()
+            folder_name.name = textField_todo.text!
+            
+            
+            try! self.realm.write {
+                self.realm.add(folder_name)
+                self.folder_table.insertRows(at: [IndexPath.init(row: self.folderName.count-1, section: 0)], with: .automatic)
+            }
+            
+            
+        }
+        alertController.addAction(action_add)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    //Trash Button
+    @IBAction func trashDidTap(_ sender: Any) {
+        
+    }
+    
+    
+    
+    
     //Tableview methods
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.folderName.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -37,10 +90,35 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         //Cell
         let cell = self.folder_table.dequeueReusableCell(withIdentifier: "folder_table", for: indexPath) as? FolderTableViewCell
         
-        cell?.folder_name.text = "Data_Science"
+        //Cell settings
+        cell?.folder_name.text = self.folderName[indexPath.row].name
+        cell?.selectionStyle = .none
+
+        
         
         return cell!
     }
+    
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            
+            let folder = self.folderName[indexPath.row]
+            try! self.realm.write {
+                self.realm.delete(folder)
+            }
+            
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+        }
+        
+        
+        
+        
+    }
+    
+    
     
     
     

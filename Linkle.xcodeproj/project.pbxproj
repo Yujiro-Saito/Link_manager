@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25F3731240059F38AD67B60D /* Pods_Linkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6E12EBFC2AAB3077DF1F18 /* Pods_Linkle.framework */; };
 		B739145A1FD2101200028ED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B73914591FD2101200028ED7 /* Assets.xcassets */; };
 		B739145C1FD210EF00028ED7 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B739145B1FD210EF00028ED7 /* FolderTableViewCell.swift */; };
+		B7797E571FD3F97F00389D1F /* FolderName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7797E561FD3F97F00389D1F /* FolderName.swift */; };
 		B7A7A7F31FCEE09400654CCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A7A7F21FCEE09400654CCB /* AppDelegate.swift */; };
 		B7A7A7F51FCEE09400654CCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A7A7F41FCEE09400654CCB /* ViewController.swift */; };
 		B7A7A7F81FCEE09400654CCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A7A7F61FCEE09400654CCB /* Main.storyboard */; };
@@ -16,14 +18,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		75CDE0B05995BFD701F669DB /* Pods-Linkle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Linkle.release.xcconfig"; path = "Pods/Target Support Files/Pods-Linkle/Pods-Linkle.release.xcconfig"; sourceTree = "<group>"; };
+		8A6E12EBFC2AAB3077DF1F18 /* Pods_Linkle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Linkle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B73914591FD2101200028ED7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B739145B1FD210EF00028ED7 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
+		B7797E561FD3F97F00389D1F /* FolderName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderName.swift; sourceTree = "<group>"; };
 		B7A7A7EF1FCEE09400654CCB /* Linkle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Linkle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7A7A7F21FCEE09400654CCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7A7A7F41FCEE09400654CCB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B7A7A7F71FCEE09400654CCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B7A7A7FC1FCEE09400654CCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7A7A7FE1FCEE09400654CCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBD6ED7C69DD76E0A2B584E5 /* Pods-Linkle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Linkle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Linkle/Pods-Linkle.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25F3731240059F38AD67B60D /* Pods_Linkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B8A7F6BFBEF47EF55B13B26 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8A6E12EBFC2AAB3077DF1F18 /* Pods_Linkle.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B7A7A7E61FCEE09400654CCB = {
 			isa = PBXGroup;
 			children = (
 				B7A7A7F11FCEE09400654CCB /* Linkle */,
 				B7A7A7F01FCEE09400654CCB /* Products */,
+				F5FF2062FE08092CBC72C5FF /* Pods */,
+				7B8A7F6BFBEF47EF55B13B26 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +75,7 @@
 			children = (
 				B7A7A7F21FCEE09400654CCB /* AppDelegate.swift */,
 				B7A7A7F41FCEE09400654CCB /* ViewController.swift */,
+				B7797E561FD3F97F00389D1F /* FolderName.swift */,
 				B7A7A7F61FCEE09400654CCB /* Main.storyboard */,
 				B739145B1FD210EF00028ED7 /* FolderTableViewCell.swift */,
 				B7A7A7FB1FCEE09400654CCB /* LaunchScreen.storyboard */,
@@ -67,6 +85,15 @@
 			path = Linkle;
 			sourceTree = "<group>";
 		};
+		F5FF2062FE08092CBC72C5FF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CBD6ED7C69DD76E0A2B584E5 /* Pods-Linkle.debug.xcconfig */,
+				75CDE0B05995BFD701F669DB /* Pods-Linkle.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +101,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B7A7A8011FCEE09400654CCB /* Build configuration list for PBXNativeTarget "Linkle" */;
 			buildPhases = (
+				DAACB045D410B057FACFF974 /* [CP] Check Pods Manifest.lock */,
 				B7A7A7EB1FCEE09400654CCB /* Sources */,
 				B7A7A7EC1FCEE09400654CCB /* Frameworks */,
 				B7A7A7ED1FCEE09400654CCB /* Resources */,
+				6A55D19DFF63677A83F73520 /* [CP] Embed Pods Frameworks */,
+				B2D27388C186F1FEC636D631 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -134,11 +164,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6A55D19DFF63677A83F73520 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Linkle/Pods-Linkle-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Linkle/Pods-Linkle-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2D27388C186F1FEC636D631 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Linkle/Pods-Linkle-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DAACB045D410B057FACFF974 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Linkle-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B7A7A7EB1FCEE09400654CCB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7797E571FD3F97F00389D1F /* FolderName.swift in Sources */,
 				B7A7A7F51FCEE09400654CCB /* ViewController.swift in Sources */,
 				B7A7A7F31FCEE09400654CCB /* AppDelegate.swift in Sources */,
 				B739145C1FD210EF00028ED7 /* FolderTableViewCell.swift in Sources */,
@@ -276,6 +363,7 @@
 		};
 		B7A7A8021FCEE09400654CCB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CBD6ED7C69DD76E0A2B584E5 /* Pods-Linkle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -291,6 +379,7 @@
 		};
 		B7A7A8031FCEE09400654CCB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75CDE0B05995BFD701F669DB /* Pods-Linkle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
