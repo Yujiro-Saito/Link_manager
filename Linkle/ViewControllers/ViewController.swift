@@ -32,6 +32,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.folder_table.dataSource = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        //ナビゲーションを透明にする
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
+    }
+
     
     //Compose Button
     @IBAction func composeDidTap(_ sender: Any) {
@@ -67,14 +75,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         present(alertController, animated: true, completion: nil)
     }
-    
-    //Trash Button
-    @IBAction func trashDidTap(_ sender: Any) {
-        
-    }
-    
-    
-    
     
     //Tableview methods
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -112,12 +112,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             tableView.deleteRows(at: [indexPath], with: .automatic)
             
         }
-        
-        
-        
-        
     }
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: "Detail", sender: nil)
+        
+    }
     
     
     

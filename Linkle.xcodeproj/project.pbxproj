@@ -10,6 +10,8 @@
 		25F3731240059F38AD67B60D /* Pods_Linkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6E12EBFC2AAB3077DF1F18 /* Pods_Linkle.framework */; };
 		B739145A1FD2101200028ED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B73914591FD2101200028ED7 /* Assets.xcassets */; };
 		B739145C1FD210EF00028ED7 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B739145B1FD210EF00028ED7 /* FolderTableViewCell.swift */; };
+		B74613A21FD587CA00A35836 /* LinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74613A11FD587CA00A35836 /* LinkViewController.swift */; };
+		B74613A41FD587EF00A35836 /* LinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74613A31FD587EF00A35836 /* LinkTableViewCell.swift */; };
 		B7797E571FD3F97F00389D1F /* FolderName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7797E561FD3F97F00389D1F /* FolderName.swift */; };
 		B7A7A7F31FCEE09400654CCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A7A7F21FCEE09400654CCB /* AppDelegate.swift */; };
 		B7A7A7F51FCEE09400654CCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A7A7F41FCEE09400654CCB /* ViewController.swift */; };
@@ -22,6 +24,8 @@
 		8A6E12EBFC2AAB3077DF1F18 /* Pods_Linkle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Linkle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B73914591FD2101200028ED7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B739145B1FD210EF00028ED7 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
+		B74613A11FD587CA00A35836 /* LinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkViewController.swift; sourceTree = "<group>"; };
+		B74613A31FD587EF00A35836 /* LinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkTableViewCell.swift; sourceTree = "<group>"; };
 		B7797E561FD3F97F00389D1F /* FolderName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderName.swift; sourceTree = "<group>"; };
 		B7A7A7EF1FCEE09400654CCB /* Linkle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Linkle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7A7A7F21FCEE09400654CCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +56,66 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B746139A1FD5850800A35836 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B746139C1FD5854400A35836 /* Storyboards */,
+				B746139B1FD5852100A35836 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B746139B1FD5852100A35836 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B739145B1FD210EF00028ED7 /* FolderTableViewCell.swift */,
+				B74613A31FD587EF00A35836 /* LinkTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B746139C1FD5854400A35836 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				B7A7A7F61FCEE09400654CCB /* Main.storyboard */,
+				B7A7A7FB1FCEE09400654CCB /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		B746139D1FD585D600A35836 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				B746139E1FD585E000A35836 /* Realm */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		B746139E1FD585E000A35836 /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				B7797E561FD3F97F00389D1F /* FolderName.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
+		B746139F1FD585F100A35836 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B7A7A7F41FCEE09400654CCB /* ViewController.swift */,
+				B74613A11FD587CA00A35836 /* LinkViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B74613A01FD5864000A35836 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				B7A7A7F21FCEE09400654CCB /* AppDelegate.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
 		B7A7A7E61FCEE09400654CCB = {
 			isa = PBXGroup;
 			children = (
@@ -73,12 +137,10 @@
 		B7A7A7F11FCEE09400654CCB /* Linkle */ = {
 			isa = PBXGroup;
 			children = (
-				B7A7A7F21FCEE09400654CCB /* AppDelegate.swift */,
-				B7A7A7F41FCEE09400654CCB /* ViewController.swift */,
-				B7797E561FD3F97F00389D1F /* FolderName.swift */,
-				B7A7A7F61FCEE09400654CCB /* Main.storyboard */,
-				B739145B1FD210EF00028ED7 /* FolderTableViewCell.swift */,
-				B7A7A7FB1FCEE09400654CCB /* LaunchScreen.storyboard */,
+				B746139F1FD585F100A35836 /* ViewControllers */,
+				B746139A1FD5850800A35836 /* Views */,
+				B746139D1FD585D600A35836 /* Library */,
+				B74613A01FD5864000A35836 /* General */,
 				B73914591FD2101200028ED7 /* Assets.xcassets */,
 				B7A7A7FE1FCEE09400654CCB /* Info.plist */,
 			);
@@ -227,8 +289,10 @@
 			files = (
 				B7797E571FD3F97F00389D1F /* FolderName.swift in Sources */,
 				B7A7A7F51FCEE09400654CCB /* ViewController.swift in Sources */,
+				B74613A21FD587CA00A35836 /* LinkViewController.swift in Sources */,
 				B7A7A7F31FCEE09400654CCB /* AppDelegate.swift in Sources */,
 				B739145C1FD210EF00028ED7 /* FolderTableViewCell.swift in Sources */,
+				B74613A41FD587EF00A35836 /* LinkTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
