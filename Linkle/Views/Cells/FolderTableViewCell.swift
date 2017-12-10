@@ -19,6 +19,7 @@ class FolderTableViewCell: UITableViewCell {
         super.awakeFromNib()
         self.folderBlur_view.layer.masksToBounds = true
         self.folderBlur_view.layer.cornerRadius = 5.0
+        
     }
 
     

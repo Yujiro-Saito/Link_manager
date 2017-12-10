@@ -12,4 +12,12 @@ class FolderName: Object {
     
     @objc dynamic var name = ""
     
+    @objc dynamic var folderID = UUID().uuidString
+    
+    //Primary key
+    override static func primaryKey() -> String? {
+        return "folderID"
+    }
+    
+    
 }
