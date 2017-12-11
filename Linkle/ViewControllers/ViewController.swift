@@ -14,6 +14,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //Property
     @IBOutlet weak var folder_table: UITableView!
     let realm = try! Realm()
+    var temp_uid = String()
     var folderName: Results<FolderName> {
         
         get {
@@ -30,6 +31,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         //Delegate
         self.folder_table.delegate = self
         self.folder_table.dataSource = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,7 +43,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
 
     
-    //Compose Button
+    //フォルダ作成
     @IBAction func composeDidTap(_ sender: Any) {
         let alertController: UIAlertController = UIAlertController(title: "フォルダ名", message: nil, preferredStyle: .alert)
         
@@ -59,10 +61,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             
             let textField_todo = (alertController.textFields?.first)! as UITextField
             
-            
             let folder_name = FolderName()
             folder_name.name = textField_todo.text!
-            
             
             try! self.realm.write {
                 self.realm.add(folder_name)
@@ -116,12 +116,23 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+
+        self.temp_uid = self.folderName[indexPath.row].folderID
         performSegue(withIdentifier: "Detail", sender: nil)
         
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        //選択されたフォルダのUUIDを渡す
+        if segue.identifier == "Detail" {
+            let link_vc = (segue.destination as? LinkViewController)!
+            link_vc.unique_id = self.temp_uid
+        }
+        
+        
+        
+    }
     
     
 }

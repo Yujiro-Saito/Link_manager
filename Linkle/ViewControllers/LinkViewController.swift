@@ -12,7 +12,7 @@ class LinkViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
 
     //Property
     @IBOutlet weak var link_table: UITableView!
-    
+    var unique_id = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -11,8 +11,9 @@ import RealmSwift
 class FolderName: Object {
     
     @objc dynamic var name = ""
-    
     @objc dynamic var folderID = UUID().uuidString
+    // A folder has many links
+    let links = List<LinkModel>()
     
     //Primary key
     override static func primaryKey() -> String? {

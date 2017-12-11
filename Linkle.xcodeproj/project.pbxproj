@@ -12,6 +12,7 @@
 		B739145C1FD210EF00028ED7 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B739145B1FD210EF00028ED7 /* FolderTableViewCell.swift */; };
 		B74613A21FD587CA00A35836 /* LinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74613A11FD587CA00A35836 /* LinkViewController.swift */; };
 		B74613A41FD587EF00A35836 /* LinkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74613A31FD587EF00A35836 /* LinkTableViewCell.swift */; };
+		B7699E971FDCE77B008F4DF1 /* LinkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7699E961FDCE77B008F4DF1 /* LinkModel.swift */; };
 		B7797E571FD3F97F00389D1F /* FolderName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7797E561FD3F97F00389D1F /* FolderName.swift */; };
 		B7A7A7F31FCEE09400654CCB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A7A7F21FCEE09400654CCB /* AppDelegate.swift */; };
 		B7A7A7F51FCEE09400654CCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A7A7F41FCEE09400654CCB /* ViewController.swift */; };
@@ -26,6 +27,7 @@
 		B739145B1FD210EF00028ED7 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
 		B74613A11FD587CA00A35836 /* LinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkViewController.swift; sourceTree = "<group>"; };
 		B74613A31FD587EF00A35836 /* LinkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkTableViewCell.swift; sourceTree = "<group>"; };
+		B7699E961FDCE77B008F4DF1 /* LinkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkModel.swift; sourceTree = "<group>"; };
 		B7797E561FD3F97F00389D1F /* FolderName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderName.swift; sourceTree = "<group>"; };
 		B7A7A7EF1FCEE09400654CCB /* Linkle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Linkle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7A7A7F21FCEE09400654CCB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				B7797E561FD3F97F00389D1F /* FolderName.swift */,
+				B7699E961FDCE77B008F4DF1 /* LinkModel.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7699E971FDCE77B008F4DF1 /* LinkModel.swift in Sources */,
 				B7797E571FD3F97F00389D1F /* FolderName.swift in Sources */,
 				B7A7A7F51FCEE09400654CCB /* ViewController.swift in Sources */,
 				B74613A21FD587CA00A35836 /* LinkViewController.swift in Sources */,
