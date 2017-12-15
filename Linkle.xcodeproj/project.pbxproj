@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		25F3731240059F38AD67B60D /* Pods_Linkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A6E12EBFC2AAB3077DF1F18 /* Pods_Linkle.framework */; };
+		B7221FE21FDE53DA0055AEBE /* RealmData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7221FE11FDE53DA0055AEBE /* RealmData.swift */; };
+		B72ADF831FE0DCCE00C01215 /* Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72ADF821FE0DCCE00C01215 /* Methods.swift */; };
+		B72ADF851FE0DDC400C01215 /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B72ADF841FE0DDC400C01215 /* Properties.swift */; };
 		B739145A1FD2101200028ED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B73914591FD2101200028ED7 /* Assets.xcassets */; };
 		B739145C1FD210EF00028ED7 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B739145B1FD210EF00028ED7 /* FolderTableViewCell.swift */; };
 		B74613A21FD587CA00A35836 /* LinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74613A11FD587CA00A35836 /* LinkViewController.swift */; };
@@ -23,6 +26,9 @@
 /* Begin PBXFileReference section */
 		75CDE0B05995BFD701F669DB /* Pods-Linkle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Linkle.release.xcconfig"; path = "Pods/Target Support Files/Pods-Linkle/Pods-Linkle.release.xcconfig"; sourceTree = "<group>"; };
 		8A6E12EBFC2AAB3077DF1F18 /* Pods_Linkle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Linkle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7221FE11FDE53DA0055AEBE /* RealmData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmData.swift; sourceTree = "<group>"; };
+		B72ADF821FE0DCCE00C01215 /* Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Methods.swift; sourceTree = "<group>"; };
+		B72ADF841FE0DDC400C01215 /* Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
 		B73914591FD2101200028ED7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B739145B1FD210EF00028ED7 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
 		B74613A11FD587CA00A35836 /* LinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				B7797E561FD3F97F00389D1F /* FolderName.swift */,
+				B7221FE11FDE53DA0055AEBE /* RealmData.swift */,
 				B7699E961FDCE77B008F4DF1 /* LinkModel.swift */,
 			);
 			path = Realm;
@@ -115,6 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				B7A7A7F21FCEE09400654CCB /* AppDelegate.swift */,
+				B72ADF821FE0DCCE00C01215 /* Methods.swift */,
+				B72ADF841FE0DDC400C01215 /* Properties.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -291,11 +300,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7699E971FDCE77B008F4DF1 /* LinkModel.swift in Sources */,
+				B72ADF831FE0DCCE00C01215 /* Methods.swift in Sources */,
 				B7797E571FD3F97F00389D1F /* FolderName.swift in Sources */,
 				B7A7A7F51FCEE09400654CCB /* ViewController.swift in Sources */,
 				B74613A21FD587CA00A35836 /* LinkViewController.swift in Sources */,
 				B7A7A7F31FCEE09400654CCB /* AppDelegate.swift in Sources */,
+				B7221FE21FDE53DA0055AEBE /* RealmData.swift in Sources */,
 				B739145C1FD210EF00028ED7 /* FolderTableViewCell.swift in Sources */,
+				B72ADF851FE0DDC400C01215 /* Properties.swift in Sources */,
 				B74613A41FD587EF00A35836 /* LinkTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,9 +12,7 @@ class LinkModel: Object {
     
     @objc dynamic var title = ""
     @objc dynamic var url = ""
-    
-    //Every link belongs to one folder
-    @objc dynamic var owner: FolderName?
+    @objc dynamic var match_id = ""
     
 }
 

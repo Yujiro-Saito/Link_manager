@@ -9,11 +9,11 @@
 import UIKit
 import RealmSwift
 
+
 class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     //Property
     @IBOutlet weak var folder_table: UITableView!
-    let realm = try! Realm()
     var temp_uid = String()
     var folderName: Results<FolderName> {
         
@@ -22,8 +22,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
         
     }
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,8 +62,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             let folder_name = FolderName()
             folder_name.name = textField_todo.text!
             
-            try! self.realm.write {
-                self.realm.add(folder_name)
+            try! realm.write {
+                realm.add(folder_name)
                 self.folder_table.insertRows(at: [IndexPath.init(row: self.folderName.count-1, section: 0)], with: .automatic)
             }
             
@@ -105,8 +103,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         if editingStyle == .delete {
             
             let folder = self.folderName[indexPath.row]
-            try! self.realm.write {
-                self.realm.delete(folder)
+            try! realm.write {
+                realm.delete(folder)
             }
             
             tableView.deleteRows(at: [indexPath], with: .automatic)
