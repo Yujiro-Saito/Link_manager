@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import SafariServices
 
 class LinkViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIWebViewDelegate {
 
@@ -33,7 +34,6 @@ class LinkViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         //Webview settings
         webview_access.delegate = self
         webview_access.scalesPageToFit = true
-        
     }
     
     //Webview methods
@@ -72,6 +72,27 @@ class LinkViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         return cell!
         
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let safari_vc = SFSafariViewController(url: URL(string: self.link_arr[indexPath.row].url)!)
+        present(safari_vc, animated: true, completion: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            
+            let link = self.link_arr[indexPath.row]
+            try! realm.write {
+                realm.delete(link)
+            }
+            
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+        }
+    }
+    
     
     //リンク保存
     @IBAction func linkAddDidTap(_ sender: Any) {
