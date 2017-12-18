@@ -10,10 +10,11 @@ import UIKit
 import RealmSwift
 
 
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 
     //Property
     @IBOutlet weak var folder_table: UITableView!
+    @IBOutlet weak var background_image: UIImageView!
     var temp_uid = String()
     var folderName: Results<FolderName> {
         
@@ -31,6 +32,21 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.folder_table.dataSource = self
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        let data = UserDefaults.standard.object(forKey: "bg_image") as? NSData
+        
+        if data != nil {
+            self.background_image.image = UIImage(data: data! as Data)
+        } else {
+            self.background_image.image = UIImage(named: "bg_two")
+        }
+        
+        
+    }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -127,10 +143,38 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             let link_vc = (segue.destination as? LinkViewController)!
             link_vc.unique_id = self.temp_uid
         }
+    }
+    
+    //カメラボタン押された時
+    @IBAction func photoButto_tapped(_ sender: Any) {
         
-        
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let pickerView = UIImagePickerController()
+            pickerView.sourceType = .photoLibrary
+            pickerView.delegate = self
+            self.present(pickerView, animated: true)
+        }
         
     }
+    
+    //写真が選択された時
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        let imageData: NSData = UIImagePNGRepresentation(image)! as NSData
+        
+        //写真を保存
+        UserDefaults.standard.set(imageData, forKey: "bg_image")
+        
+        //写真を表示
+        let data = UserDefaults.standard.object(forKey: "bg_image") as! NSData
+        self.background_image.image = UIImage(data: data as Data)
+
+        self.dismiss(animated: true)
+        
+    }
+    
+    
     
     
 }

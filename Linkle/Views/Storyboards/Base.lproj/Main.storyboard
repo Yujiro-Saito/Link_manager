@@ -91,20 +91,34 @@
                                     <action selector="composeDidTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jw0-oK-TSJ"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AC8-K8-5d4">
+                                <rect key="frame" x="50" y="567" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4Se-9F-umy"/>
+                                    <constraint firstAttribute="width" constant="50" id="GQK-3k-tQu"/>
+                                </constraints>
+                                <state key="normal" image="photo"/>
+                                <connections>
+                                    <action selector="photoButto_tapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TtB-zK-5Le"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="A6Q-rC-oEZ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="M3I-vh-BsJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FZS-8g-7Au" secondAttribute="bottom" constant="50" id="Pvq-pg-Sh9"/>
                             <constraint firstItem="A6Q-rC-oEZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="RLX-ys-sNv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="AC8-K8-5d4" secondAttribute="bottom" constant="50" id="Y3D-KZ-SBl"/>
                             <constraint firstItem="A6Q-rC-oEZ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Yxs-Oi-5Hq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FZS-8g-7Au" secondAttribute="trailing" constant="50" id="rgB-7D-S12"/>
                             <constraint firstItem="A6Q-rC-oEZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tpX-xZ-nKO"/>
+                            <constraint firstItem="AC8-K8-5d4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="uF7-CB-Wvo"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ftg-Ju-jwa"/>
                     <connections>
+                        <outlet property="background_image" destination="6OO-MX-i5B" id="taJ-fQ-5nw"/>
                         <outlet property="folder_table" destination="A6Q-rC-oEZ" id="Njh-Sn-uXx"/>
                         <segue destination="lPp-SF-jQr" kind="show" identifier="Detail" id="IqP-hd-RUu"/>
                     </connections>
@@ -239,6 +253,7 @@
     <resources>
         <image name="add" width="128" height="128"/>
         <image name="bg_three" width="2592" height="1728"/>
-        <image name="bg_two" width="1024" height="1280"/>
+        <image name="bg_two" width="4896" height="3264"/>
+        <image name="photo" width="128" height="128"/>
     </resources>
 </document>
