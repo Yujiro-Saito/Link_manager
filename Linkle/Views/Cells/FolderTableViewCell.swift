@@ -12,13 +12,13 @@ class FolderTableViewCell: UITableViewCell {
     
     //Property
     @IBOutlet weak var folder_name: UILabel!
-    @IBOutlet weak var folderBlur_view: UIVisualEffectView!
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.folderBlur_view.layer.masksToBounds = true
-        self.folderBlur_view.layer.cornerRadius = 5.0
+        
+        self.folder_name.layer.masksToBounds = true
+        self.folder_name.layer.cornerRadius = 5.0
         
     }
 

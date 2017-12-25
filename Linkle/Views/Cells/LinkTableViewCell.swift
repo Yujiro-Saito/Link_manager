@@ -12,15 +12,14 @@ class LinkTableViewCell: UITableViewCell {
 
     //Prpoerty
     @IBOutlet weak var link_title: UILabel!
-    @IBOutlet weak var linkBlur_view: UIVisualEffectView!
     
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.linkBlur_view.layer.masksToBounds = true
-        self.linkBlur_view.layer.cornerRadius = 5.0
+        self.link_title.layer.masksToBounds = true
+        self.link_title.layer.cornerRadius = 5.0
     }
 
     

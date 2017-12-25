@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
+class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UINavigationControllerDelegate {
 
     //Property
     @IBOutlet weak var folder_table: UITableView!
@@ -30,21 +30,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         //Delegate
         self.folder_table.delegate = self
         self.folder_table.dataSource = self
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        
-        let data = UserDefaults.standard.object(forKey: "bg_image") as? NSData
-        
-        if data != nil {
-            self.background_image.image = UIImage(data: data! as Data)
-        } else {
-            self.background_image.image = UIImage(named: "bg_two")
-        }
-        
-        
     }
     
     
@@ -54,6 +39,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         //ナビゲーションを透明にする
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController!.navigationBar.shadowImage = UIImage()
+        
     }
 
     
@@ -129,6 +115,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
+    
+    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "削除"
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         self.temp_uid = self.folderName[indexPath.row].folderID
@@ -145,37 +137,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
     }
     
-    //カメラボタン押された時
-    @IBAction func photoButto_tapped(_ sender: Any) {
-        
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            let pickerView = UIImagePickerController()
-            pickerView.sourceType = .photoLibrary
-            pickerView.delegate = self
-            self.present(pickerView, animated: true)
-        }
-        
-    }
-    
-    //写真が選択された時
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        let imageData: NSData = UIImagePNGRepresentation(image)! as NSData
-        
-        //写真を保存
-        UserDefaults.standard.set(imageData, forKey: "bg_image")
-        
-        //写真を表示
-        let data = UserDefaults.standard.object(forKey: "bg_image") as! NSData
-        self.background_image.image = UIImage(data: data as Data)
 
-        self.dismiss(animated: true)
-        
-    }
-    
-    
-    
     
 }
 
