@@ -7,5 +7,6 @@ target 'Linkle' do
 
   # Pods for Linkle
 	pod 'RealmSwift'
+	pod 'NVActivityIndicatorView'
 
 end

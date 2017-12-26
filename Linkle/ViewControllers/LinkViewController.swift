@@ -9,11 +9,14 @@
 import UIKit
 import RealmSwift
 import SafariServices
+import NVActivityIndicatorView
 
 class LinkViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIWebViewDelegate {
 
     //Property
     @IBOutlet weak var link_table: UITableView!
+    @IBOutlet weak var color_indicator: NVActivityIndicatorView!
+    
     var unique_id = String()
     var isLoaded = Bool()
     var link_arr: Results<LinkModel> {
@@ -113,7 +116,7 @@ class LinkViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         let action_add = UIAlertAction.init(title: "OK", style: .default) { (UIAlertAction) -> Void in
             
             //インディケータ回す
-            self.showIndicator()
+            self.color_indicator.startAnimating()
             
             let textField_link = (alertController.textFields?.first)! as UITextField
             let link = LinkModel()
@@ -133,6 +136,7 @@ class LinkViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 link.title = page_title
                 link.url = textField_link.text!
                 link.match_id = self.unique_id
+                link.link_num = link.link_num+1
                 
                 try! realm.write {
                     realm.add(link)
@@ -140,7 +144,7 @@ class LinkViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                     
                     //インディケータストップ
                     DispatchQueue.main.async {
-                        indicator.stopAnimating()
+                        self.color_indicator.stopAnimating()
                     }
                     
                     return
@@ -156,19 +160,5 @@ class LinkViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         
     }
-    
-    //インディケーターを回す
-    internal func showIndicator() {
-        indicator.activityIndicatorViewStyle = .whiteLarge
-        indicator.center = self.view.center
-        indicator.color = UIColor.darkGray
-        indicator.hidesWhenStopped = true
-        self.view.addSubview(indicator)
-        self.view.bringSubview(toFront: indicator)
-        indicator.startAnimating()
-    }
-    
-
-    
 
 }

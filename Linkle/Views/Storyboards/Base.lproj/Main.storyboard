@@ -90,7 +90,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-39" y="-331"/>
+            <point key="canvasLocation" x="-39.200000000000003" y="-331.48425787106447"/>
         </scene>
         <!--Link View Controller-->
         <scene sceneID="BG1-SV-vry">
@@ -147,6 +147,21 @@
                                     <action selector="linkAddDidTap:" destination="lPp-SF-jQr" eventType="touchUpInside" id="FxD-PJ-Psu"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0wQ-pf-2Do" customClass="NVActivityIndicatorView" customModule="NVActivityIndicatorView">
+                                <rect key="frame" x="152" y="298" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="BbC-an-dxL"/>
+                                    <constraint firstAttribute="width" constant="70" id="WyU-Vh-KYJ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" red="0.32567519299999997" green="0.40890382980000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="padding">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.92148786780000003" green="0.92162030939999995" blue="0.92145878079999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -155,11 +170,14 @@
                             <constraint firstItem="upm-6O-nhx" firstAttribute="leading" secondItem="D5T-4h-kao" secondAttribute="leading" id="Ni4-X3-dV3"/>
                             <constraint firstItem="D5T-4h-kao" firstAttribute="bottom" secondItem="QpH-rz-Hug" secondAttribute="bottom" constant="50" id="Oej-lM-gOn"/>
                             <constraint firstItem="D5T-4h-kao" firstAttribute="trailing" secondItem="QpH-rz-Hug" secondAttribute="trailing" constant="50" id="R6F-Vr-DdJ"/>
+                            <constraint firstItem="0wQ-pf-2Do" firstAttribute="centerY" secondItem="4re-6Z-k3Z" secondAttribute="centerY" id="Vm0-J1-cOS"/>
+                            <constraint firstItem="0wQ-pf-2Do" firstAttribute="centerX" secondItem="4re-6Z-k3Z" secondAttribute="centerX" id="Z8S-ot-cXt"/>
                             <constraint firstItem="upm-6O-nhx" firstAttribute="trailing" secondItem="D5T-4h-kao" secondAttribute="trailing" id="lch-ca-G3w"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="D5T-4h-kao"/>
                     </view>
                     <connections>
+                        <outlet property="color_indicator" destination="0wQ-pf-2Do" id="hGo-mr-Cms"/>
                         <outlet property="link_table" destination="upm-6O-nhx" id="Gtm-nl-CDi"/>
                     </connections>
                 </viewController>

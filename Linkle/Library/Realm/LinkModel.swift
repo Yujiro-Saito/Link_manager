@@ -13,6 +13,7 @@ class LinkModel: Object {
     @objc dynamic var title = ""
     @objc dynamic var url = ""
     @objc dynamic var match_id = ""
+    @objc dynamic var link_num = 0
     
 }
 
