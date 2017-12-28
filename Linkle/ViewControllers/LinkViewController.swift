@@ -65,11 +65,9 @@ class LinkViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         //Cell
         let cell = link_table.dequeueReusableCell(withIdentifier: "link_table", for: indexPath) as? LinkTableViewCell
-        
         cell?.selectionStyle = .none
-        
         cell?.link_title.text = self.link_arr[indexPath.row].title
-        
+        cell?.link_url.text = self.link_arr[indexPath.row].url
         
         
         return cell!

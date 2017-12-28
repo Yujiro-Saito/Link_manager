@@ -12,14 +12,17 @@ class LinkTableViewCell: UITableViewCell {
 
     //Prpoerty
     @IBOutlet weak var link_title: UILabel!
+    @IBOutlet weak var link_view: UIView!
+    @IBOutlet weak var link_url: UILabel!
     
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.link_title.layer.masksToBounds = true
-        self.link_title.layer.cornerRadius = 5.0
+        self.link_view.layer.masksToBounds = true
+        self.link_view.layer.cornerRadius = 7.5
+        
     }
 
     
