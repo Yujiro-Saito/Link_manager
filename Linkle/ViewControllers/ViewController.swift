@@ -20,6 +20,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         get {
             return realm.objects(FolderName.self)
+                .sorted(byKeyPath: "increment_id", ascending: false)
         }
         
     }
@@ -30,8 +31,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         //Delegate
         self.folder_table.delegate = self
         self.folder_table.dataSource = self
+        
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -61,11 +62,26 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             let textField_todo = (alertController.textFields?.first)! as UITextField
             
             let folder_name = FolderName()
-            folder_name.name = textField_todo.text!
             
-            try! realm.write {
-                realm.add(folder_name)
-                self.folder_table.insertRows(at: [IndexPath.init(row: self.folderName.count-1, section: 0)], with: .automatic)
+            //ID Increment
+            let max_id = realm.objects(FolderName.self).sorted(byKeyPath: "increment_id",ascending:false)
+            
+            if max_id.count == 0 {
+                folder_name.increment_id = 0
+                folder_name.name = textField_todo.text!
+                try! realm.write {
+                    realm.add(folder_name)
+                    self.folder_table.insertRows(at: [IndexPath.init(row: self.folderName.count-1, section: 0)], with: .automatic)
+                }
+            } else {
+                folder_name.increment_id = max_id[0].increment_id + 1
+                //Folder Name
+                folder_name.name = textField_todo.text!
+                
+                try! realm.write {
+                    realm.add(folder_name)
+                    self.folder_table.insertRows(at: [IndexPath.init(row: 0, section: 0)], with: .automatic)
+                }
             }
             
             
@@ -93,8 +109,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         cell?.folder_name.text = self.folderName[indexPath.row].name
         cell?.selectionStyle = .none
 
-        
-        
         return cell!
     }
     

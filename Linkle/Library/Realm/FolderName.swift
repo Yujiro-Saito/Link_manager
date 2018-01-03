@@ -12,6 +12,7 @@ class FolderName: Object {
     
     @objc dynamic var name = ""
     @objc dynamic var folderID = UUID().uuidString
+    @objc dynamic var increment_id = 0
     
     // A folder has many links
     let links = List<LinkModel>()
@@ -20,6 +21,7 @@ class FolderName: Object {
     override static func primaryKey() -> String? {
         return "folderID"
     }
+    
     
     
 }
