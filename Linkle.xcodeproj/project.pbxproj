@@ -21,6 +21,7 @@
 		B7A7A7F51FCEE09400654CCB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A7A7F41FCEE09400654CCB /* ViewController.swift */; };
 		B7A7A7F81FCEE09400654CCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A7A7F61FCEE09400654CCB /* Main.storyboard */; };
 		B7A7A7FD1FCEE09400654CCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A7A7FB1FCEE09400654CCB /* LaunchScreen.storyboard */; };
+		B7AECE142014318000AF5E5A /* extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AECE132014318000AF5E5A /* extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		B7A7A7F71FCEE09400654CCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B7A7A7FC1FCEE09400654CCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7A7A7FE1FCEE09400654CCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7AECE132014318000AF5E5A /* extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extension.swift; sourceTree = "<group>"; };
 		CBD6ED7C69DD76E0A2B584E5 /* Pods-Linkle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Linkle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Linkle/Pods-Linkle.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -67,6 +69,7 @@
 		B746139A1FD5850800A35836 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B7AECE122014316700AF5E5A /* Extension */,
 				B746139C1FD5854400A35836 /* Storyboards */,
 				B746139B1FD5852100A35836 /* Cells */,
 			);
@@ -157,6 +160,14 @@
 				B7A7A7FE1FCEE09400654CCB /* Info.plist */,
 			);
 			path = Linkle;
+			sourceTree = "<group>";
+		};
+		B7AECE122014316700AF5E5A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B7AECE132014318000AF5E5A /* extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		F5FF2062FE08092CBC72C5FF /* Pods */ = {
@@ -310,6 +321,7 @@
 				B74613A21FD587CA00A35836 /* LinkViewController.swift in Sources */,
 				B7A7A7F31FCEE09400654CCB /* AppDelegate.swift in Sources */,
 				B7221FE21FDE53DA0055AEBE /* RealmData.swift in Sources */,
+				B7AECE142014318000AF5E5A /* extension.swift in Sources */,
 				B739145C1FD210EF00028ED7 /* FolderTableViewCell.swift in Sources */,
 				B72ADF851FE0DDC400C01215 /* Properties.swift in Sources */,
 				B74613A41FD587EF00A35836 /* LinkTableViewCell.swift in Sources */,

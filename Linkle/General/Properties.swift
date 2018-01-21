@@ -9,4 +9,4 @@
 import UIKit
 
 internal let indicator = UIActivityIndicatorView()
-internal let webview_access = UIWebView()
+//internal let webview_access = UIWebView()

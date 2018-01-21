@@ -8,10 +8,11 @@
 
 import UIKit
 import RealmSwift
+import Ji
 import SafariServices
 import NVActivityIndicatorView
 
-class LinkViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UIWebViewDelegate {
+class LinkViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     //Property
     @IBOutlet weak var link_table: UITableView!
@@ -33,24 +34,7 @@ class LinkViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         //Tableview settings
         link_table.delegate = self
         link_table.dataSource = self
-        
-        //Webview settings
-        webview_access.delegate = self
-        webview_access.scalesPageToFit = true
     }
-    
-    //Webview methods
-    func webViewDidStartLoad(_ webView: UIWebView) {
-        self.isLoaded = false
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-    }
-    
-    func webViewDidFinishLoad(_ webView: UIWebView) {
-        self.isLoaded = true
-        UIApplication.shared.isNetworkActivityIndicatorVisible = false
-    }
-    
-    
     
     //Tableview methods
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -118,20 +102,17 @@ class LinkViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             
             let textField_link = (alertController.textFields?.first)! as UITextField
             let link = LinkModel()
-            
-            //与えられたURLからページにアクセス
-            DispatchQueue.main.async {
-                let encoded_string = textField_link.text!.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
-                let encoded_url = URL(string: encoded_string!)
-                let request = URLRequest(url: encoded_url!)
-                webview_access.loadRequest(request)
-            }
+            self.isLoaded = true
             
             //ページアクセス完了後,タイトルを取得とDBに保存
             waiting_codition( {self.isLoaded == false} ) {
-                let page_title = webview_access.stringByEvaluatingJavaScript(from: "document.title")!
+                let encoded_string = textField_link.text!.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+                let encoded_url = URL(string: encoded_string!)
+                let jiDoc = Ji(htmlURL: encoded_url!)
+                let titleNode = jiDoc?.xPath("//head/title")?.first
+                let titleString:String = String(describing: titleNode!)
                 
-                link.title = page_title
+                link.title = titleString
                 link.url = textField_link.text!
                 link.match_id = self.unique_id
                 link.link_num = link.link_num+1
@@ -142,6 +123,7 @@ class LinkViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                     
                     //インディケータストップ
                     DispatchQueue.main.async {
+                        self.isLoaded = false
                         self.color_indicator.stopAnimating()
                     }
                     

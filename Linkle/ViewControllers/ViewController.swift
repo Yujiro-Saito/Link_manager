@@ -38,7 +38,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         super.viewWillAppear(true)
         
         //ナビゲーションを透明にする
-        self.navigationController?.navigationBar.barTintColor = UIColor.blue
+        self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController!.navigationBar.shadowImage = UIImage()
         
     }
 
@@ -107,6 +108,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         //Cell settings
         cell?.folder_name.text = self.folderName[indexPath.row].name
+        cell?.folder_side_view.layer.backgroundColor = UIColor.random.cgColor
         cell?.selectionStyle = .none
 
         return cell!
