@@ -34,7 +34,11 @@ class LinkViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         //Tableview settings
         link_table.delegate = self
         link_table.dataSource = self
+        
+        
     }
+    
+
     
     //Tableview methods
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -77,6 +81,7 @@ class LinkViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             
         }
     }
+    
     
     
     //リンク保存

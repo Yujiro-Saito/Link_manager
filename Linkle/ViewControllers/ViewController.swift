@@ -15,6 +15,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //Property
     @IBOutlet weak var folder_table: UITableView!
     @IBOutlet weak var background_image: UIImageView!
+    
+    var barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.edit, target: self, action: #selector(ViewController.pushButton(sender:)))
     var temp_uid = String()
     var folderName: Results<FolderName> {
         
@@ -32,7 +34,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.folder_table.delegate = self
         self.folder_table.dataSource = self
         
+        barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.edit, target: self, action: #selector(ViewController.pushButton(sender:)))
+        self.navigationItem.rightBarButtonItem = barButton
+        
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -40,6 +47,23 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         //ナビゲーションを透明にする
         self.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController!.navigationBar.shadowImage = UIImage()
+        
+    }
+    
+    //編集ボタン押された時
+    @objc func pushButton(sender:UIButton) {
+        self.folder_table.isEditing = !folder_table.isEditing
+        
+        switch folder_table.isEditing {
+        case true:
+            barButton.title = "Done"
+            self.navigationItem.rightBarButtonItem = barButton
+            
+        case false:
+            barButton.title = "Edit"
+            self.navigationItem.rightBarButtonItem = barButton
+            
+        }
         
     }
 
@@ -127,6 +151,28 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             tableView.deleteRows(at: [indexPath], with: .automatic)
             
         }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        let selected_folder = folderName[sourceIndexPath.row]
+        let destionation_folder = folderName[destinationIndexPath.row]
+        
+        //Insert selected folder
+        try! realm.write() {
+            realm.add(destionation_folder)
+        }
+        
+         //remove selected folder
+         try! realm.write() {
+         realm.delete(selected_folder)
+         }
+        
     }
     
     
