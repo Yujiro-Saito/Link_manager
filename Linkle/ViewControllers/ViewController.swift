@@ -167,8 +167,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         try! realm.write {
             
-            print("あああ")
-            print(self.folderName)
             
             let sourceObject = self.folderName[sourceIndexPath.row]
             let destinationObject = self.folderName[destinationIndexPath.row]
@@ -190,48 +188,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             
             sourceObject.increment_id = destinationObjectOrder
             
-            print("いいいい")
             print(self.folderName)
             
         }
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        /*
-        //0
-        let selected_folder = folderName[sourceIndexPath.row]
-        //1
-        let destionation_folder = folderName[destinationIndexPath.row]
-        
-        //Remove and Insert selected folder
-        try! realm.write() {
-            
-            
-            
-            
-            print("あああ")
-            print(self.folderName)
-            realm.add(selected_folder)
-            realm.add(destionation_folder)
-            print("いいいい")
-            print(self.folderName)
-            realm.delete(destionation_folder)
-            realm.delete(selected_folder)
-            print("ううう")
-            print(self.folderName)
- 
- 
-            
-        }
-        */
+       
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
