@@ -27,8 +27,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
     }
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         //Delegate
         self.folder_table.delegate = self
@@ -158,22 +161,87 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return true
     }
     
+    
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         
-        let selected_folder = folderName[sourceIndexPath.row]
-        let destionation_folder = folderName[destinationIndexPath.row]
         
-        //Insert selected folder
-        try! realm.write() {
-            realm.add(destionation_folder)
+        try! realm.write {
+            
+            print("あああ")
+            print(self.folderName)
+            
+            let sourceObject = self.folderName[sourceIndexPath.row]
+            let destinationObject = self.folderName[destinationIndexPath.row]
+            
+            let destinationObjectOrder = destinationObject.increment_id
+            
+            if sourceIndexPath.row < destinationIndexPath.row {
+                for index in sourceIndexPath.row...destinationIndexPath.row {
+                    let object = self.folderName[index]
+                    object.increment_id -= 1
+                }
+            } else {
+                for index in (destinationIndexPath.row..<sourceIndexPath.row).reversed() {
+                    let object = self.folderName[index]
+                    object.increment_id += 1
+                }
+                
+            }
+            
+            sourceObject.increment_id = destinationObjectOrder
+            
+            print("いいいい")
+            print(self.folderName)
+            
         }
         
-         //remove selected folder
-         try! realm.write() {
-         realm.delete(selected_folder)
-         }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /*
+        //0
+        let selected_folder = folderName[sourceIndexPath.row]
+        //1
+        let destionation_folder = folderName[destinationIndexPath.row]
+        
+        //Remove and Insert selected folder
+        try! realm.write() {
+            
+            
+            
+            
+            print("あああ")
+            print(self.folderName)
+            realm.add(selected_folder)
+            realm.add(destionation_folder)
+            print("いいいい")
+            print(self.folderName)
+            realm.delete(destionation_folder)
+            realm.delete(selected_folder)
+            print("ううう")
+            print(self.folderName)
+ 
+ 
+            
+        }
+        */
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        self.temp_uid = self.folderName[indexPath.row].folderID
+        performSegue(withIdentifier: "Detail", sender: nil)
         
     }
+    
+    
     
     
     
@@ -182,12 +250,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         return "削除"
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        self.temp_uid = self.folderName[indexPath.row].folderID
-        performSegue(withIdentifier: "Detail", sender: nil)
-        
-    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
