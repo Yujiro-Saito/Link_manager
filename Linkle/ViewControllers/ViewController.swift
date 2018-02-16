@@ -16,7 +16,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var folder_table: UITableView!
     @IBOutlet weak var background_image: UIImageView!
     
-    var barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.edit, target: self, action: #selector(ViewController.pushButton(sender:)))
+    //var barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.edit, target: self, action: #selector(ViewController.pushButton(sender:)))
+    
+    var barButton = UIBarButtonItem()
+    
+    
+    
     var temp_uid = String()
     var folderName: Results<FolderName> {
         
@@ -37,7 +42,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.folder_table.delegate = self
         self.folder_table.dataSource = self
         
-        barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.edit, target: self, action: #selector(ViewController.pushButton(sender:)))
+        barButton = UIBarButtonItem(title: "編集", style: .plain, target: self, action: #selector(ViewController.pushButton(sender:)))
         self.navigationItem.rightBarButtonItem = barButton
         
     }
@@ -55,18 +60,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     //編集ボタン押された時
     @objc func pushButton(sender:UIButton) {
+        
         self.folder_table.isEditing = !folder_table.isEditing
         
-        switch folder_table.isEditing {
-        case true:
-            barButton.title = "Done"
-            self.navigationItem.rightBarButtonItem = barButton
-            
-        case false:
-            barButton.title = "Edit"
-            self.navigationItem.rightBarButtonItem = barButton
-            
+        if folder_table.isEditing {
+            self.navigationItem.rightBarButtonItem?.title = "完了"
+        } else {
+            self.navigationItem.rightBarButtonItem?.title = "編集"
         }
+        
         
     }
 
@@ -144,16 +146,20 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
-        if editingStyle == .delete {
-            
-            let folder = self.folderName[indexPath.row]
-            try! realm.write {
-                realm.delete(folder)
+        
+            if editingStyle == .delete {
+                
+                let folder = self.folderName[indexPath.row]
+                try! realm.write {
+                    realm.delete(folder)
+                }
+                
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                
             }
-            
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            
-        }
+        
+        
+        
     }
     
     
@@ -188,7 +194,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             
             sourceObject.increment_id = destinationObjectOrder
             
-            print(self.folderName)
             
         }
         
