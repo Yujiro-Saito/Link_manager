@@ -45,6 +45,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         barButton = UIBarButtonItem(title: "編集", style: .plain, target: self, action: #selector(ViewController.pushButton(sender:)))
         self.navigationItem.rightBarButtonItem = barButton
         
+        
+        
     }
     
     

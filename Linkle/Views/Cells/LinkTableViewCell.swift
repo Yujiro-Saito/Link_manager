@@ -23,6 +23,11 @@ class LinkTableViewCell: UITableViewCell {
         self.link_view.layer.masksToBounds = true
         self.link_view.layer.cornerRadius = 7.5
         
+        self.link_view.layer.shadowColor = UIColor.red.cgColor
+        self.link_view.layer.shadowOffset = CGSize(width: 30, height: 30)
+        self.link_view.layer.shadowOpacity = 1.0
+        self.link_view.layer.shadowRadius = 7.5
+        
     }
 
     
