@@ -82,7 +82,9 @@ class LinkViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
     }
     
-    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "削除"
+    }
     
     //リンク保存
     @IBAction func linkAddDidTap(_ sender: Any) {
@@ -122,8 +124,10 @@ class LinkViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                 link.match_id = self.unique_id
                 link.link_num = link.link_num+1
                 
+                
                 try! realm.write {
                     realm.add(link)
+                    
                     self.link_table.insertRows(at: [IndexPath.init(row: self.link_arr.count-1, section: 0)], with: .automatic)
                     
                     //インディケータストップ

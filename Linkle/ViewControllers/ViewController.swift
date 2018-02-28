@@ -16,7 +16,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var folder_table: UITableView!
     @IBOutlet weak var background_image: UIImageView!
     
-    //var barButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.edit, target: self, action: #selector(ViewController.pushButton(sender:)))
     
     var barButton = UIBarButtonItem()
     
@@ -36,7 +35,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         //Delegate
         self.folder_table.delegate = self
@@ -103,7 +101,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 folder_name.name = textField_todo.text!
                 try! realm.write {
                     realm.add(folder_name)
-                    self.folder_table.insertRows(at: [IndexPath.init(row: self.folderName.count-1, section: 0)], with: .automatic)
+                    self.folder_table.insertRows(at: [IndexPath.init(row: 0, section: 0)], with: .automatic)
                 }
             } else {
                 folder_name.increment_id = max_id[0].increment_id + 1
@@ -114,6 +112,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                     realm.add(folder_name)
                     self.folder_table.insertRows(at: [IndexPath.init(row: 0, section: 0)], with: .automatic)
                 }
+                
             }
             
             
@@ -170,32 +169,20 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
+    //フォルダの並び替え
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         
         
+        let sourceObject = self.folderName[sourceIndexPath.row]
+        let destinationObject = self.folderName[destinationIndexPath.row]
+        let destinationObjectOrder = destinationObject.increment_id
+        let sourceObjectOrder = sourceObject.increment_id
+        
         try! realm.write {
             
-            
-            let sourceObject = self.folderName[sourceIndexPath.row]
-            let destinationObject = self.folderName[destinationIndexPath.row]
-            
-            let destinationObjectOrder = destinationObject.increment_id
-            
-            if sourceIndexPath.row < destinationIndexPath.row {
-                for index in sourceIndexPath.row...destinationIndexPath.row {
-                    let object = self.folderName[index]
-                    object.increment_id -= 1
-                }
-            } else {
-                for index in (destinationIndexPath.row..<sourceIndexPath.row).reversed() {
-                    let object = self.folderName[index]
-                    object.increment_id += 1
-                }
-                
-            }
-            
+            //Exchange increment id
             sourceObject.increment_id = destinationObjectOrder
-            
+            destinationObject.increment_id = sourceObjectOrder
             
         }
         
